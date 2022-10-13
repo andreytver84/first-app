@@ -8,6 +8,24 @@ export class Question {
             }
         })
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => {
+            question.id = response.name;
+            return question;
+        })
+        .then(addToLocalStorage)
+        .then(Question.RenderList)
     }
+    static RenderList() {
+        const questions = getQuestionsFromLocalStorage()
+    }
+}
+
+function addToLocalStorage(question) {
+    const all = getQuestionsFromLocalStorage();
+    all.push(question);
+    localStorage.setItem('questions', JSON.stringify(all))
+}
+
+function getQuestionsFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('questions') || '[]')
 }
