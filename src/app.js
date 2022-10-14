@@ -1,11 +1,13 @@
 import {Question} from './question.js'
-import {isValid} from './utils.js'
+import {createModal, isValid} from './utils.js'
 import './style.css'
 
 const form = document.getElementById('form');
 const input = form.querySelector('#question-input');
 const submitBtn = form.querySelector('#submit');
+const modalBtn = document.getElementById('modal-btn');
 
+modalBtn.addEventListener('click',openModal);
 window.addEventListener('load',Question.RenderList);
 form.addEventListener('submit', submitFormHandler);
 input.addEventListener('input', () => {
@@ -30,4 +32,8 @@ function submitFormHandler(event) {
             submitBtn.disabled = false;
         })        
     }
+}
+
+function openModal() {
+    createModal('Авторизация','Test');
 }
