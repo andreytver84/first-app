@@ -61,4 +61,6 @@
   margin: 100px auto;
   overflow-y: auto;
   background: #ffffff;
+  padding: 25px 40px 30px;
+  border-radius: 3px;
  }
