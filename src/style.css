@@ -64,3 +64,7 @@
   padding: 25px 40px 30px;
   border-radius: 3px;
  }
+
+ .error {
+  color: #ff0000;
+ }
